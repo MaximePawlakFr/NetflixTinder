@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Container from './theme/grid/Container'
 import Description from './description'
 import Navigation from './navigation'
+import ChoixLikesDislikes from './choixLikesDislikes'
 
 // Create a Title component that'll render an <h1> tag with some styles
 const Title = styled.h1`
@@ -28,14 +29,15 @@ height:50%
 class App extends Component {
   render() {
     return (
-
+      <div>
       <Container>
       <Navigation>
       </Navigation>
       
      <Wrapper>
     <Title>
-      Like your favs series and movies online!
+
+    <h1>  Like your favs series and movies online! </h1>
     </Title>
 
     
@@ -43,9 +45,11 @@ class App extends Component {
   </Wrapper>
  
     <Description/>
-
+      <ChoixLikesDislikes/>
 
   </Container>
+
+  </div>
 
     );
   }
