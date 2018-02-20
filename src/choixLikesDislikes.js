@@ -6,45 +6,58 @@ import Container from './theme/grid/Container'
 
 
 
-class ChoixLikesDislikes extends Component{
+class ChoixLikesDislikes extends Component {
 
-	 constructor(props) {
+  constructor(props) {
     super(props);
-      this.state = {
+    this.state = {
       loopActive: false,
       shuffleActive: false,
     };
-    
+
   }
 
 
 
-  ajoutListeLikes(){
-  	let likes= new Array();
-  	if(localStorage.getItem("likes")) {
-  		let likes1= JSON.parse(localStorage.getItem("likes"));
-	  	likes1.forEach(function (element){
+  ajoutListeLikes() {
 
-	  		likes.push(element);
+  	//création d'une nouvelle array pour les médias likés par l'utilisateur
+    let likes = new Array();
+
+    //s'il y a déjà des éléments dans le localStorage correspondant à des médias likés, on les récupère dans une liste
+    if (localStorage.getItem("likes")) {
+      let likes1 = JSON.parse(localStorage.getItem("likes"));
+      likes1.forEach(function(element) {
+
+        likes.push(element);
 
 
 
-	  	})
-	  }
-  	//on envoie le médias dans la liste des médias likés
-  	likes.push(this.props.listedemedias[0]);
-  	//on retire le médias de la liste de médias 
+      })
+    }
+    //on envoie le médias dans la liste des médias likés
+    likes.push(this.props.listedemedias[0]);
+    //on retire le médias de la liste de médias 
+    this.props.listedemedias.splice(0, 1);
+    //crée dans le localStorage une liste de film likés
+    localStorage.setItem("likes", JSON.stringify(likes));
+    this.render();
+    this.forceUpdate()
+  }
+
+  dislikeMedia(){
+
+  	//le médias disliké est retiré de la liste afin de ne pas être proposé une seconde fois à l'utilisateur 
   	this.props.listedemedias.splice(0, 1);
-  	//crée dans le localStorage une liste de film likés
-  	 localStorage.setItem("likes",JSON.stringify(likes));
-  	 this.render();
-  	 this.forceUpdate()
+  	this.render();
+    this.forceUpdate();
+
   }
 
-	render(){
+  render() {
 
-		return(
-			<Container>
+    return (
+      <Container>
 			<div className="container">
 				<div class="card mb-4 box-shadow">
 	          <div class="card-header">
@@ -68,14 +81,14 @@ class ChoixLikesDislikes extends Component{
 					    	
 					    	 
 					<button type="button" class="btn btn-success btn-lg btn-block" onClick={this.ajoutListeLikes.bind(this)}>Like</button>
-					<button type="button" class="btn btn-danger btn-lg btn-block">Dislike</button>
+					<button type="button" class="btn btn-danger btn-lg btn-block" onClick={this.dislikeMedia.bind(this)}>Dislike</button>
 					
 	        </div>
 	        </div>
 		</div>
 		</Container>
-		);
-	}
+      );
+  }
 
 }
 

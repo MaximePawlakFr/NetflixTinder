@@ -4,14 +4,14 @@ import Container from './theme/grid/Container'
 import './App.css';
 
 
+//component permettant d'afficher un court texte sur le fonctionnement de l'app
+class Description extends Component {
+  render() {
 
-	class Description extends Component{
-		render(){
+    return (
 
-			return(
-
-
-			<Container>
+       
+      <Container>
 				<div class="container">
 					 <div class="row">
 					    	<div class="col-sm-8">
@@ -24,12 +24,12 @@ import './App.css';
 					</div>
 				</div>
 
-			</Container>
+		</Container>
 
-			);
+      );
+  }
+
 }
 
-}
 
-
-	export default Description;
+export default Description;

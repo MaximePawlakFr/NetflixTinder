@@ -8,32 +8,40 @@ import Navigation from './navigation'
 import ChoixLikesDislikes from './choixLikesDislikes'
 import fetch from 'node-fetch';
 
-class displayLikes extends Component{
+class DisplayLikes extends Component {
 
-	 constructor(props) {
+  constructor(props) {
     super(props);
-}
+  }
+
+  
+
+  render() {
 
 
-	render(){
 
-		var rows=[];
-		if (this.props.listedefavoris){
-  this.props.listedefavoris.forEach(function(element){
-  	rows.push(<tr>  <td>{element.original_title}</td></tr>)
-  	
-  })
-}
+    var rows = [];
+    if (this.props.listedefavoris) {
+    
 
-		return (
 
-			<table class="table">
+      this.props.listedefavoris.forEach(function(element) {
+        rows.push(<tr>  <td>{element.original_title}</td>
+  		 <td>{element.overview}</td>
+  		<td>{element.vote}</td><td>{element.production[0].name}</td>  </tr>)
+
+      })
+    }
+
+    return (
+
+      <table class="table" id="favMedia">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Title</th>
+      <th scope="col">Tagline</th>
+      <th scope="col">Note</th>
+      <th scope="col">Production company</th>
     </tr>
   </thead>
   <tbody>{rows}
@@ -43,8 +51,8 @@ class displayLikes extends Component{
   </tbody>
 </table>
 
-			);
-	}
+      );
+  }
 }
 
-export default displayLikes;
+export default DisplayLikes;
