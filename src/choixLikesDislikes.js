@@ -26,7 +26,7 @@ class ChoixLikesDislikes extends Component {
 
     //s'il y a déjà des éléments dans le localStorage correspondant à des médias likés, on les récupère dans une liste
     if (localStorage.getItem("likes")) {
-      let likes1 = JSON.parse(localStorage.getItem("likes"));
+      let likes1 = JSON.parse(localStorage.getItem("likes"))||[];
       likes1.forEach(function(element) {
 
         likes.push(element);
