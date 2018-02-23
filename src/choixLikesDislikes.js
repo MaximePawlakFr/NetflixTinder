@@ -55,7 +55,8 @@ class ChoixLikesDislikes extends Component {
   }
 
   render() {
-    const firstMedia = this.props.listedemedias[0];
+    const listedemedias = this.props.listedemedias;
+    const firstMedia = (listedemedias && listedemedias[0]) ? listedemedias[0] : undefined;
 
     return (
       <Container>
