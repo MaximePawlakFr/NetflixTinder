@@ -91,7 +91,7 @@ class App extends Component {
 
   fetchAllMedias() {
 
-    for (let i = 2; i < 958; i++) {
+    for (let i = 2; i < 50; i++) {
 
       this.fetchMovieID(i);
       //localStorage.setItem("film", JSON.stringify(this.fetechMovieID(i)));
