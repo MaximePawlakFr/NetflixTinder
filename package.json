@@ -2,6 +2,7 @@
   "name": "netflixtinder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://maximepawlakfr.github.io/NetflixTinder/",
   "dependencies": {
     "esformatter": "^0.10.0",
     "node-fetch": "^2.0.0",
